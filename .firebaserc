@@ -1,0 +1,12 @@
+{
+  "projects": {
+    "default": "nextstepstudio-nextpace"
+  },
+  "targets": {
+    "nextstepstudio-nextpace": {
+      "hosting": {
+        "website": ["nextstepstudio-website"]
+      }
+    }
+  }
+}
