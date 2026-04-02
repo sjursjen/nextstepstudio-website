@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Developer Integration — Next Step Studio</title>
+  <meta name="description" content="Next Step Studio integration overview for platform partners including Garmin, Apple Health, and Strava. Describes our use of third-party APIs in the NextPace running app.">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar" role="navigation" aria-label="Main navigation">
+  <div class="container">
+    <a href="/" class="nav-logo" aria-label="NextPace home">
+      <span class="nav-logo-primary">NextPace</span>
+      <span class="nav-logo-sub">by Next Step Studio</span>
+    </a>
+    <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-hidden="true">
+    <label for="nav-toggle" class="nav-toggle-label" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </label>
+    <ul class="nav-links">
+      <li><a href="/">Home</a></li>
+      <li><a href="/privacy.html">Privacy</a></li>
+      <li><a href="/voorwaarden.html">Terms</a></li>
+      <li><a href="/developers.html" class="active">Developers</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- Page content -->
+<main>
+  <div class="legal-page">
+
+    <div class="legal-header">
+      <h1>Developer &amp; Integration Overview</h1>
+      <p class="legal-meta">Next Step Studio · KvK 42002265 · <a href="mailto:jurjen@nextstepstudio.nl">jurjen@nextstepstudio.nl</a></p>
+    </div>
+
+    <div class="legal-highlight">
+      This page is intended for platform partners and API review teams (Garmin, Apple, Strava). It describes how NextPace integrates with third-party platforms, which data is accessed, and how it is used.
+    </div>
+
+    <!-- About -->
+    <div class="legal-section" id="about">
+      <h2>About NextPace and Next Step Studio</h2>
+      <p>NextPace is a mobile running training application for Android and iOS, developed by Next Step Studio (registered in the Netherlands, KvK 42002265). The app generates personalised running training plans based on the user's fitness level (VDOT score), goal race distance, target date, and available training days. It includes an AI coaching assistant powered by Anthropic's Claude API.</p>
+      <p>NextPace is designed for recreational runners — people preparing for a 5K, 10K, half marathon, or marathon who want a science-based, personalised training plan without the cost of a human coach.</p>
+      <p>
+        <strong>Website:</strong> <a href="https://www.nextstepstudio.nl">www.nextstepstudio.nl</a><br>
+        <strong>Privacy policy:</strong> <a href="https://www.nextstepstudio.nl/privacy.html">www.nextstepstudio.nl/privacy.html</a><br>
+        <strong>Terms of service:</strong> <a href="https://www.nextstepstudio.nl/voorwaarden.html">www.nextstepstudio.nl/voorwaarden.html</a><br>
+        <strong>Contact:</strong> <a href="mailto:jurjen@nextstepstudio.nl">jurjen@nextstepstudio.nl</a>
+      </p>
+    </div>
+
+    <!-- Garmin -->
+    <div class="legal-section" id="garmin">
+      <h2>Garmin Connect Integration</h2>
+      <p>Next Step Studio is applying for access to the <strong>Garmin Connect Developer Program</strong> to integrate the Garmin Health API and Activity API into NextPace.</p>
+
+      <h3>Use case</h3>
+      <p>NextPace uses Garmin activity and health data to automatically track and update the user's training plan. Rather than requiring manual entry of completed workouts, users who own a Garmin device can connect their Garmin account and have their runs, heart rate data, and performance metrics imported automatically.</p>
+      <p>This data is used exclusively to:</p>
+      <ul>
+        <li>Mark scheduled training sessions as completed;</li>
+        <li>Update the user's VDOT score based on recent race and workout performance;</li>
+        <li>Adjust training zones (heart rate, pace) as the user's fitness evolves;</li>
+        <li>Provide the AI coaching assistant with up-to-date context about the user's training load and recovery.</li>
+      </ul>
+
+      <h3>Requested API access</h3>
+      <table class="legal-table">
+        <thead>
+          <tr>
+            <th>API</th>
+            <th>Data accessed</th>
+            <th>Purpose</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Activity API</strong></td>
+            <td>Activity summaries (distance, duration, pace, activity type, start time)</td>
+            <td>Import completed runs and match them to scheduled training sessions in the user's plan</td>
+          </tr>
+        </tbody>
+      </table>
+      <p>We do not request access to the Health API, Women's Health API, or any biometric/sensor data (heart rate, sleep, stress, pulse oximetry). Our use case is limited to activity tracking.</p>
+
+      <h3>Data handling</h3>
+      <ul>
+        <li>Garmin data is stored in Google Firestore, EU region europe-west4 (Netherlands).</li>
+        <li>Data is only accessed with explicit user consent via Garmin's OAuth flow.</li>
+        <li>Users can revoke access at any time from within NextPace or via their Garmin Connect account settings.</li>
+        <li>Garmin data is not shared with any third party other than those listed in our <a href="/privacy.html">privacy policy</a>.</li>
+        <li>Garmin data is deleted immediately when a user disconnects the integration or deletes their account.</li>
+        <li>We do not use Garmin data for advertising, profiling, or any purpose other than delivering the NextPace training service.</li>
+      </ul>
+
+      <h3>User consent flow</h3>
+      <ol>
+        <li>User navigates to Settings → Integrations → Garmin in the NextPace app.</li>
+        <li>User is redirected to the standard Garmin Connect OAuth consent screen where they can review and approve the requested scopes.</li>
+        <li>Upon approval, NextPace receives an OAuth token and begins importing activity data.</li>
+        <li>The user can disconnect at any time via Settings → Integrations → Garmin → Disconnect.</li>
+      </ol>
+    </div>
+
+    <!-- Strava -->
+    <div class="legal-section" id="strava">
+      <h2>Strava Integration (active)</h2>
+      <p>NextPace already integrates with Strava via the Strava API v3. The integration uses OAuth 2.0 and requests the following scopes:</p>
+      <table class="legal-table">
+        <thead>
+          <tr>
+            <th>Scope</th>
+            <th>Purpose</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>activity:read_all</code></td>
+            <td>Import completed running activities to match against the training plan</td>
+          </tr>
+          <tr>
+            <td><code>profile:read_all</code></td>
+            <td>Read athlete profile (name, profile picture) for display in the app</td>
+          </tr>
+        </tbody>
+      </table>
+      <p>Strava data is handled under the same principles as Garmin data described above.</p>
+    </div>
+
+    <!-- Apple Health -->
+    <div class="legal-section" id="apple-health">
+      <h2>Apple Health Integration (planned)</h2>
+      <p>A future version of NextPace will support Apple Health integration on iOS. This will allow users to import running workouts and heart rate data directly from the Apple Health store on their device, without requiring a separate account connection.</p>
+      <p>Requested HealthKit permissions will be limited to:</p>
+      <ul>
+        <li>Workout data (running, walking)</li>
+        <li>Heart rate samples</li>
+        <li>VO2max estimates (where available)</li>
+      </ul>
+      <p>All Apple Health data remains on-device unless the user explicitly chooses to sync it to their NextPace account.</p>
+    </div>
+
+    <!-- Technical -->
+    <div class="legal-section" id="technical">
+      <h2>Technical Infrastructure</h2>
+      <table class="legal-table">
+        <thead>
+          <tr>
+            <th>Component</th>
+            <th>Technology</th>
+            <th>Location</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Mobile app</td>
+            <td>Flutter (Android + iOS)</td>
+            <td>Client device</td>
+          </tr>
+          <tr>
+            <td>Backend API</td>
+            <td>Python / FastAPI on Google Cloud Run</td>
+            <td>EU — europe-west4 (Netherlands)</td>
+          </tr>
+          <tr>
+            <td>Database</td>
+            <td>Google Firestore</td>
+            <td>EU — europe-west4 (Netherlands)</td>
+          </tr>
+          <tr>
+            <td>Authentication</td>
+            <td>Firebase Authentication (Google + Apple Sign-In)</td>
+            <td>EU — europe-west4 (Netherlands)</td>
+          </tr>
+          <tr>
+            <td>AI coaching</td>
+            <td>Anthropic Claude API</td>
+            <td>US — covered by SCC/DPA</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Contact -->
+    <div class="legal-section" id="contact">
+      <h2>Contact</h2>
+      <p>For questions about our integrations or API usage, please contact:</p>
+      <p>
+        <strong>Jurjen Ophuis</strong> — Next Step Studio<br>
+        KvK: 42002265<br>
+        E-mail: <a href="mailto:jurjen@nextstepstudio.nl">jurjen@nextstepstudio.nl</a><br>
+        Website: <a href="https://www.nextstepstudio.nl">www.nextstepstudio.nl</a>
+      </p>
+    </div>
+
+  </div>
+</main>
+
+<!-- Footer -->
+<footer class="footer" role="contentinfo">
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <a href="/" class="nav-logo">
+          <span class="nav-logo-primary">NextPace</span>
+          <span class="nav-logo-sub">by Next Step Studio</span>
+        </a>
+        <p>Smart running training for recreational athletes.</p>
+      </div>
+      <nav class="footer-links" aria-label="Footer navigation">
+        <a href="/">Home</a>
+        <a href="/privacy.html">Privacy Policy</a>
+        <a href="/voorwaarden.html">Terms of Service</a>
+        <a href="/developers.html">Developers</a>
+        <a href="mailto:jurjen@nextstepstudio.nl">Contact</a>
+      </nav>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Next Step Studio. All rights reserved.</span>
+      <span>Registered in the Netherlands · KvK: 42002265</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

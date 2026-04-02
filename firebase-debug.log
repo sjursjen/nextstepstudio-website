@@ -1,0 +1,45 @@
+[debug] [2026-04-02T18:27:30.533Z] ----------------------------------------------------------------------
+[debug] [2026-04-02T18:27:30.536Z] Command:       /opt/homebrew/Cellar/node/25.8.1_1/bin/node /opt/homebrew/bin/firebase serve --only hosting
+[debug] [2026-04-02T18:27:30.536Z] CLI Version:   15.10.0
+[debug] [2026-04-02T18:27:30.537Z] Platform:      darwin
+[debug] [2026-04-02T18:27:30.537Z] Node Version:  v25.8.1
+[debug] [2026-04-02T18:27:30.537Z] Time:          Thu Apr 02 2026 20:27:30 GMT+0200 (Central European Summer Time)
+[debug] [2026-04-02T18:27:30.537Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2026-04-02T18:27:30.980Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-04-02T18:27:30.981Z] > authorizing via signed-in user (jurjen@nextstepstudio.nl)
+[debug] [2026-04-02T18:27:30.981Z] [iam] checking project nextstepstudio-nextpace for permissions ["firebase.projects.get"]
+[debug] [2026-04-02T18:27:30.981Z] Checked if tokens are valid: true, expires at: 1775158029291
+[debug] [2026-04-02T18:27:30.981Z] Checked if tokens are valid: true, expires at: 1775158029291
+[debug] [2026-04-02T18:27:30.982Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/nextstepstudio-nextpace:testIamPermissions [none]
+[debug] [2026-04-02T18:27:30.982Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/nextstepstudio-nextpace:testIamPermissions  x-goog-user-project=nextstepstudio-nextpace
+[debug] [2026-04-02T18:27:30.982Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/nextstepstudio-nextpace:testIamPermissions {"permissions":["firebase.projects.get"]}
+[debug] [2026-04-02T18:27:31.824Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/nextstepstudio-nextpace:testIamPermissions 200
+[debug] [2026-04-02T18:27:31.825Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/nextstepstudio-nextpace:testIamPermissions {"permissions":["firebase.projects.get"]}
+[debug] [2026-04-02T18:27:31.825Z] Checked if tokens are valid: true, expires at: 1775158029291
+[debug] [2026-04-02T18:27:31.825Z] Checked if tokens are valid: true, expires at: 1775158029291
+[debug] [2026-04-02T18:27:31.825Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/nextstepstudio-nextpace/services/cloudresourcemanager.googleapis.com [none]
+[debug] [2026-04-02T18:27:31.825Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/nextstepstudio-nextpace/services/cloudresourcemanager.googleapis.com  x-goog-user-project=nextstepstudio-nextpace
+[debug] [2026-04-02T18:27:32.903Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/nextstepstudio-nextpace/services/cloudresourcemanager.googleapis.com 200
+[debug] [2026-04-02T18:27:32.903Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/nextstepstudio-nextpace/services/cloudresourcemanager.googleapis.com [omitted]
+[debug] [2026-04-02T18:27:32.909Z] Checked if tokens are valid: true, expires at: 1775158029291
+[debug] [2026-04-02T18:27:32.909Z] Checked if tokens are valid: true, expires at: 1775158029291
+[debug] [2026-04-02T18:27:32.909Z] >>> [apiv2][query] GET https://cloudresourcemanager.googleapis.com/v1/projects/nextstepstudio-nextpace [none]
+[debug] [2026-04-02T18:27:33.114Z] <<< [apiv2][status] GET https://cloudresourcemanager.googleapis.com/v1/projects/nextstepstudio-nextpace 200
+[debug] [2026-04-02T18:27:33.114Z] <<< [apiv2][body] GET https://cloudresourcemanager.googleapis.com/v1/projects/nextstepstudio-nextpace {"projectNumber":"662669944321","projectId":"nextstepstudio-nextpace","lifecycleState":"ACTIVE","name":"nextstepstudio-nextpace","labels":{"firebase":"enabled","firebase-core":"disabled"},"createTime":"2026-03-12T18:22:02.238016Z","parent":{"type":"organization","id":"22595751293"}}
+[debug] [2026-04-02T18:27:33.115Z] Checked if tokens are valid: true, expires at: 1775158029291
+[debug] [2026-04-02T18:27:33.115Z] Checked if tokens are valid: true, expires at: 1775158029291
+[debug] [2026-04-02T18:27:33.116Z] >>> [apiv2][query] GET https://firebasehosting.googleapis.com/v1beta1/projects/nextstepstudio-nextpace/sites 
+[debug] [2026-04-02T18:27:34.251Z] <<< [apiv2][status] GET https://firebasehosting.googleapis.com/v1beta1/projects/nextstepstudio-nextpace/sites 200
+[debug] [2026-04-02T18:27:34.251Z] <<< [apiv2][body] GET https://firebasehosting.googleapis.com/v1beta1/projects/nextstepstudio-nextpace/sites {"sites":[{"name":"projects/nextstepstudio-nextpace/sites/nextstepstudio-nextpace","defaultUrl":"https://nextstepstudio-nextpace.web.app","type":"DEFAULT_SITE"}]}
+[debug] [2026-04-02T18:27:34.251Z] Checked if tokens are valid: true, expires at: 1775158029291
+[debug] [2026-04-02T18:27:34.252Z] Checked if tokens are valid: true, expires at: 1775158029291
+[debug] [2026-04-02T18:27:34.252Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/nextstepstudio-nextpace/webApps/-/config [none]
+[debug] [2026-04-02T18:27:35.108Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/nextstepstudio-nextpace/webApps/-/config 200
+[debug] [2026-04-02T18:27:35.108Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/nextstepstudio-nextpace/webApps/-/config {"projectId":"nextstepstudio-nextpace","appId":"1:662669944321:web:36203ca44f4926cd9e4200","storageBucket":"nextstepstudio-nextpace.firebasestorage.app","apiKey":"AIzaSyDg2UWKeHiSDn-iHOCKthVX8Cc9EA8fePU","authDomain":"nextstepstudio-nextpace.firebaseapp.com","messagingSenderId":"662669944321","measurementId":"G-PHNGF9DVDP","projectNumber":"662669944321","version":"2"}
+[debug] [2026-04-02T18:27:35.115Z] Checked if tokens are valid: true, expires at: 1775158029291
+[debug] [2026-04-02T18:27:35.115Z] Checked if tokens are valid: true, expires at: 1775158029291
+[debug] [2026-04-02T18:27:35.115Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/nextstepstudio-nextpace [none]
+[debug] [2026-04-02T18:27:35.328Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/nextstepstudio-nextpace 200
+[debug] [2026-04-02T18:27:35.328Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/nextstepstudio-nextpace {"projectId":"nextstepstudio-nextpace","projectNumber":"662669944321","displayName":"nextstepstudio-nextpace","name":"projects/nextstepstudio-nextpace","resources":{"hostingSite":"nextstepstudio-nextpace"},"state":"ACTIVE","etag":"1_4304fce1-6eae-47eb-b326-c4647f54818d"}
+[info] ✔  hosting[website]: Local server: http://localhost:5002 {"metadata":{"emulator":{"name":"hosting"},"message":"Local server: http://localhost:5002"}}
